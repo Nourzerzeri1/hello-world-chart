@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: hello-world
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./hello-world-chart
+      sourceRef:
+        kind: GitRepository
+        name: hello-world-repo
+        namespace: flux-system
+  values:
+    image:
+      repository: core.harbor.domain/library/hello-world
+      tag: "1.0"
+      pullPolicy: IfNotPresent
+    service:
+      type: NodePort
+      port: 80
+
