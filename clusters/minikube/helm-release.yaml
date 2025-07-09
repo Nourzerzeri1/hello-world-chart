@@ -14,9 +14,11 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: core.harbor.domain/library/hello-world
+      repository: core.harbor.domain/1/hello-world
       tag: "1.0"
       pullPolicy: IfNotPresent
+    imagePullSecrets:
+      - name: harbor-secret
     service:
       type: NodePort
       port: 80
