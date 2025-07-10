@@ -1,7 +1,10 @@
 image:
-  repository: core.harbor.domain/library/hello-world
+  repository: core.harbor.domain:30003/library/hello-world
   tag: "1.0"
   pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: harbor-creds
 
 service:
   type: NodePort

@@ -18,6 +18,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
+      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        - name: harbor-secret
+      {{ toYaml . | indent 8 }}
+      {{- end }}
 
