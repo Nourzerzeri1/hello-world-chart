@@ -1,5 +1,5 @@
 image:
-  repository: core.harbor.domain:30003/library/hello-world
+  repository: host.docker.internal:30003/library/hello-world
   tag: "1.0"
   pullPolicy: IfNotPresent
 
